@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@600&family=Hind+Siliguri:wght@300&family=Poppins:wght@300&family=Press+Start+2P&family=Rajdhani:wght@500&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+body {
+    background-color: #337ce9;
+}
+
+.contenedor {
+    width: 90%;
+    margin: auto;
+    padding-top: 100px;
+    display: flex;
+    
+}
+
+.left-content, .right-content {
+    flex-basis: 50%;
+}
+
+.left-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
+    grid-gap: 2rem;    
+}
+
+.left-content img {
+    min-height: 100px;
+}
+
+.carta {
+    width: 250px;
+    background-color: #c7f7f7;
+    border-radius: 5rem;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    transition-duration: 0.5s;
+    height: 100%;
+    
+}
+
+.carta:hover{
+    height: 104%;
+
+}
+
+.right-content {
+    width: 50%;
+    text-align: center;
+    color: black;
+    position: fixed;
+    top: 100px;
+    right: 10px;
+
+}
+
+.right-content img {
+    margin: 2rem;
+    height: 200px;
+    width: 200px;
+
+}
+
+.right-content h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 7px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.abilities {
+    width: 30%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+
+}
+
+.abilities .group {
+    background-color: #0a5838;
+    color: white;
+    padding: 0.5rem;
+    font-size: 12px;
+    border-radius: 8px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.base-stat {
+    margin-top: 2rem;
+    background-color: #c7f7f7;
+    border-radius: 80%;
+    width: 50%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
+}   
+
+.btn-group {
+    display: flex;
+}
+.btn-group button {
+    outline: none;
+    border-width: 3px;
+    width: 150px;
+    padding: 0.3rem 0;
+    margin: 1rem;
+    font-size: 20px;
+    color: white;
+    background-color: #006912;
+    border-radius: 50px;
+    opacity: 90%;
+    
+
+}
