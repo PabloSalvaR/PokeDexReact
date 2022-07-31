@@ -2,7 +2,6 @@ import React from 'react'
 import capitalizeFirstLetter from './CapitalizerFirst';
 
 const Pokeinfo = ({data}) => {
-    console.log(data)
 
   return (
     <>

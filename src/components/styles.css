@@ -20,8 +20,14 @@ body {
     
 }
 
+.navbar {
+    width: 200px;
+    margin-left: 20%;
+    
+}
+
 .left-content, .right-content {
-    flex-basis: 50%;
+    flex-basis: 60%;
 }
 
 .left-content {
@@ -52,6 +58,7 @@ body {
 
 .carta:hover{
     height: 104%;
+    cursor:pointer;
 
 }
 
@@ -127,5 +134,8 @@ body {
     border-radius: 50px;
     opacity: 90%;
     
+}
 
+.btn-group button:hover {
+    cursor:pointer;
 }
