@@ -58,7 +58,7 @@ const Main = () => {
 
     return(
         <>
-            <Select className="navbar" options={pokeTypes} />
+            <Select className="navbar" />
 
             <div className="contenedor">
             
