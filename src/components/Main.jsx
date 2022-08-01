@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Card  from './Card';
 import Pokeinfo from './Pokeinfo'
 import axios from 'axios';
+import capitalizeFirstLetter from './CapitalizerFirst';
 import Select from 'react-select';
 
 const Main = () => {
@@ -12,18 +13,25 @@ const Main = () => {
     const [prevUrl, setPrevUrl] = useState();
     const [pokeDex, setPokeDex] = useState()
     const url2 ="https://pokeapi.co/api/v2/type/"
-    
+    const [pokeTypes, setPokeTypes] = useState([])
+
+
 
     //Por tipos
     const getTypes = async () => {
         let res = await axios.get(url2)
         const pokeTypes = res.data.results
-        console.log(pokeTypes)
+        const pokeTypeData = pokeTypes.map(item => ({
+            value: item.url, 
+            label: item.name
+        }))
+        setPokeTypes(pokeTypeData)
+        
     }
 
+    
 
-
-    // General y Pokemones
+    // Funcion Pokemon Principal
 
     const pokeFunction = async () =>{
         setLoading(true)
@@ -35,6 +43,7 @@ const Main = () => {
     
     }
 
+    // Funcion Traer Pokemones
     const getPokemon = async (res) => {
         res.map(async (item) => {
             const result= await axios.get(item.url)
@@ -58,7 +67,14 @@ const Main = () => {
 
     return(
         <>
-            <Select className="navbar" />
+            <Select className="navbar" options={pokeTypes} onChange={ async event => {
+                const res = await axios.get(event.value)
+                //setPokeData(res.data.pokemon)
+            
+            }
+            
+            } 
+            />
 
             <div className="contenedor">
             
