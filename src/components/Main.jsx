@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Card  from './Card';
 import Pokeinfo from './Pokeinfo'
 import axios from 'axios';
-import capitalizeFirstLetter from './CapitalizerFirst';
 import Select from 'react-select';
 
 const Main = () => {
@@ -67,15 +66,17 @@ const Main = () => {
 
     return(
         <>
-            <Select className="navbar" options={pokeTypes} onChange={ async event => {
-                const res = await axios.get(event.value)
-                //setPokeData(res.data.pokemon)
-            
-            }
-            
-            } 
-            />
-
+            <div className='navbar'>
+                <a href="/"><img className="logo-poke-api" src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' alt='Logo-PokeApi'/></a>
+                <Select className="select" options={pokeTypes} onChange={ async event => {
+                    const res = await axios.get(event.value)
+                    //setPokeData(res.data.pokemon)
+                
+                }
+                
+                } 
+                />
+            </div>
             <div className="contenedor">
             
                 <div className="left-content">
