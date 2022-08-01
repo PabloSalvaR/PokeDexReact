@@ -70,8 +70,10 @@ const Main = () => {
                 <a href="/"><img className="logo-poke-api" src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' alt='Logo-PokeApi'/></a>
                 <Select className="select" options={pokeTypes} onChange={ async event => {
                     const res = await axios.get(event.value)
-                    //setPokeData(res.data.pokemon)
-                
+                    const listPokeTypes = res.data.pokemon
+                    console.log(listPokeTypes)
+                    
+                    
                 }
                 
                 } 

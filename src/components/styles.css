@@ -52,9 +52,9 @@ body {
     min-height: 100px;
 }
 
-.carta {
-    width: 210px;
-    background-color: #c7f7f7;
+.card {
+    width: 220px;  
+    background: linear-gradient(#e7e7e7, #c7f7f7);
     border-radius: 5rem;
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
     padding: 10px;
@@ -68,7 +68,7 @@ body {
     
 }
 
-.carta:hover{
+.card:hover{
     height: 104%;
     cursor:pointer;
 
@@ -109,7 +109,7 @@ body {
 }
 
 .abilities .group {
-    background-color: #0a5838;
+    background: linear-gradient(#0a5838, #21694b);
     color: white;
     padding: 0.5rem;
     font-size: 12px;
@@ -119,7 +119,7 @@ body {
 
 .base-stat {
     margin-top: 2rem;
-    background-color: #ffeace;
+    background: linear-gradient(#e7e7e7, #ffeace 50%);
     border-radius: 80%;
     width: 50%;
     height: 300px;
@@ -142,7 +142,7 @@ body {
     margin: 1rem;
     font-size: 20px;
     color: white;
-    background-color: #006912;
+    background: linear-gradient(#006912, #278d62 90%);
     border-radius: 50px;
     opacity: 90%;
     
