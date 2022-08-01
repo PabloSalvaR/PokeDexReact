@@ -3,6 +3,7 @@ import Card  from './Card';
 import Pokeinfo from './Pokeinfo'
 import axios from 'axios';
 import Select from 'react-select';
+import capitalizeFirstLetter from './CapitalizerFirst';
 
 const Main = () => {
     const [pokeData,setPokeData] = useState([])
@@ -11,18 +12,18 @@ const Main = () => {
     const [nextUrl, setNextUrl] = useState();
     const [prevUrl, setPrevUrl] = useState();
     const [pokeDex, setPokeDex] = useState()
-    const url2 ="https://pokeapi.co/api/v2/type/"
+    const urlTipos ="https://pokeapi.co/api/v2/type/"
     const [pokeTypes, setPokeTypes] = useState([])
 
 
 
     //Por tipos
     const getTypes = async () => {
-        let res = await axios.get(url2)
+        let res = await axios.get(urlTipos)
         const pokeTypes = res.data.results
         const pokeTypeData = pokeTypes.map(item => ({
             value: item.url, 
-            label: item.name
+            label: capitalizeFirstLetter(item.name)
         }))
         setPokeTypes(pokeTypeData)
         
@@ -43,9 +44,10 @@ const Main = () => {
     }
 
     // Funcion Traer Pokemones
-    const getPokemon = async (res) => {
-        res.map(async (item) => {
-            const result= await axios.get(item.url)
+    const getPokemon = async (pokemons) => {
+        setPokeData([])
+        pokemons.map(async (pokemon) => {
+            const result= await axios.get(pokemon.url)
 
             setPokeData(state => {
                 state = [...state,result.data]
@@ -60,9 +62,6 @@ const Main = () => {
         getTypes()
     }, [url])
 
-  
-    
-
 
     return(
         <>
@@ -70,9 +69,12 @@ const Main = () => {
                 <a href="/"><img className="logo-poke-api" src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' alt='Logo-PokeApi'/></a>
                 <Select className="select" options={pokeTypes} onChange={ async event => {
                     const res = await axios.get(event.value)
-                    const listPokeTypes = res.data.pokemon
+                    const listPokeTypes = res.data.pokemon.map((objPokemon) => objPokemon.pokemon)
+                   
+                    getPokemon(listPokeTypes)
+
                     console.log(listPokeTypes)
-                    
+                    console.log(pokeData)
                     
                 }
                 
