@@ -6,6 +6,9 @@ import Select from 'react-select';
 import capitalizeFirstLetter from './CapitalizerFirst';
 
 const Main = () => {
+
+    //Declaración de variables de estado
+
     const [pokeData,setPokeData] = useState([])
     const [loading,setLoading] = useState(true)
     const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/")
@@ -17,7 +20,8 @@ const Main = () => {
 
 
 
-    //Por tipos
+    //Función buscar tipos de pokemon
+
     const getTypes = async () => {
         let res = await axios.get(urlTipos)
         const pokeTypes = res.data.results
@@ -25,15 +29,16 @@ const Main = () => {
             value: item.url, 
             label: capitalizeFirstLetter(item.name)
         }))
+        
         setPokeTypes(pokeTypeData)
         
     }
 
     
 
-    // Funcion Pokemon Principal
+    // Funcion Mostrar Pokemons
 
-    const pokeFunction = async () =>{
+    const pokeMostrar = async () =>{
         setLoading(true)
         const res = await axios.get(url);
         setNextUrl(res.data.next);
@@ -58,7 +63,7 @@ const Main = () => {
     }
 
     useEffect(() => {
-        pokeFunction()
+        pokeMostrar()
         getTypes()
     }, [url])
 
@@ -68,6 +73,8 @@ const Main = () => {
             <div className='navbar'>
                 <a href="/"><img className="logo-poke-api" src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' alt='Logo-PokeApi'/></a>
                 <Select className="select" options={pokeTypes} onChange={ async event => {
+                    
+                    //Accediendo a los pokemones nuevamente, pero esta vez a través de los tipos
                     const res = await axios.get(event.value)
                     const listPokeTypes = res.data.pokemon.map((objPokemon) => objPokemon.pokemon)
                    
@@ -97,7 +104,7 @@ const Main = () => {
                         }}>Next</button>}
                     </div>
 
-                    <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)}/>
+                    <Card pokemons={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)}/>
                     
                 </div>
                 <div className="right-content">

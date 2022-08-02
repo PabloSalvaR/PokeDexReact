@@ -1,19 +1,19 @@
 import React from 'react'
 import capitalizeFirstLetter from './CapitalizerFirst'
 
-const Card = ({pokemon, loading, infoPokemon}) => {
+const Card = ({pokemons, loading, infoPokemon}) => {
     
   return (
         <>
         {
             loading ? <h1>Loading...</h1> :
-            pokemon.map((item)=> {
+            pokemons.map((pokemon)=> {
                 return (
                     
-                    <div className="card" key={item.id} onClick={() => infoPokemon(item)}>
-                        <h2>#{item.id}</h2>
-                        <img src={item.sprites.front_default} alt="" />
-                        <h2>{capitalizeFirstLetter(item.name)}</h2>
+                    <div className="card" key={pokemon.id} onClick={() => infoPokemon(pokemon)}>
+                        <h2>#{pokemon.id}</h2>
+                        <img src={pokemon.sprites.front_default} alt="" />
+                        <h2>{capitalizeFirstLetter(pokemon.name)}</h2>
                     </div>                 
             
                 )
