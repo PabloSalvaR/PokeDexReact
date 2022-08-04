@@ -97,6 +97,7 @@ body {
 .card:hover{
     height: 104%;
     cursor:pointer;
+    background: linear-gradient(#e7e7e7, #c3ffc1);
 
 }
 
@@ -137,12 +138,12 @@ body {
 }
 
 .abilities .group {
-    background: linear-gradient(#0a5838, #21694b);
+    background: linear-gradient(#9c37b1, #531353);
     color: white;
     padding: 0.5rem;
     font-size: 12px;
     border-radius: 8px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 .base-stat {
