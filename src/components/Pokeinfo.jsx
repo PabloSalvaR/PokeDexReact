@@ -18,7 +18,7 @@ const Pokeinfo = ({data}) => {
                 {
                     data.abilities.map(poke => {
                         return (
-                            <div key={poke.id} className="group">
+                            <div key={poke.ability.url} className="group">
                               <h2>{capitalizeFirstLetter(poke.ability.name)}</h2>
                             </div>
                           
@@ -32,7 +32,7 @@ const Pokeinfo = ({data}) => {
             {
                 data.stats.map(poke => {
                     return (
-                      <h3 key={poke.id}>{capitalizeFirstLetter(poke.stat.name)} = {poke.base_stat}</h3>                        
+                      <h3 key={poke.stat.url}>{capitalizeFirstLetter(poke.stat.name)} = {poke.base_stat}</h3>                        
                         
                     )
                 })

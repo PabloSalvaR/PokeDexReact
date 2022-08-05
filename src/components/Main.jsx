@@ -79,10 +79,6 @@ const Main = () => {
                     const listPokeTypes = res.data.pokemon.map((objPokemon) => objPokemon.pokemon)
                    
                     getPokemon(listPokeTypes)
-
-                    console.log(listPokeTypes)
-                    console.log(pokeData)
-                    
                 }
                 
                 } 
