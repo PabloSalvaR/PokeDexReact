@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Card  from './Card';
+import Cards  from './Cards';
 import Pokeinfo from './Pokeinfo'
 import axios from 'axios';
 import Select from 'react-select';
@@ -64,8 +64,11 @@ const Main = () => {
 
     useEffect(() => {
         pokeMostrar()
-        getTypes()
     }, [url])
+
+    useEffect(() => {
+        getTypes()
+    }, [])
 
 
     return(
@@ -100,7 +103,7 @@ const Main = () => {
                         }}>Next</button>}
                     </div>
 
-                    <Card pokemons={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)}/>
+                    <Cards pokemons={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)}/>
                     
                 </div>
                 <div className="right-content">

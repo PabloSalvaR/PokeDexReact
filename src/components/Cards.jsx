@@ -1,7 +1,7 @@
 import React from 'react'
 import capitalizeFirstLetter from './CapitalizerFirst'
 
-const Card = ({pokemons, loading, infoPokemon}) => {
+const Cards = ({pokemons, loading, infoPokemon}) => {
     
   return (
         <>
@@ -23,4 +23,4 @@ const Card = ({pokemons, loading, infoPokemon}) => {
     )
 }
 
-export default Card;
+export default Cards;
