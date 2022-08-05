@@ -10,7 +10,7 @@ const Cards = ({pokemons, loading, infoPokemon}) => {
             pokemons.map((pokemon)=> {
                 return (
                     
-                    <div className="card" key={pokemon.id} onClick={() => infoPokemon(pokemon)}>
+                    <div className="card" key={pokemon.sprites.back_default} onClick={() => infoPokemon(pokemon)}>
                         <h2>#{pokemon.id}</h2>
                         <img src={pokemon.sprites.front_default} alt="" />
                         <h2>{capitalizeFirstLetter(pokemon.name)}</h2>
